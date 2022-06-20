@@ -13,10 +13,13 @@
 <body>
     <div class="container">
         <header class="header">
-            <p class="header__title">Travel Portal</p>
-            <a class="logo-link" href="">
-                <img class="logo" src="assets/svg/site-logo.svg" alt="Travel Portal logo" width="30" height="30">
-            </a>
+            <div class="logo">
+                <p class="logo__title">Travel Portal</p>
+                <a class="logo__link" href="#">
+                    <img class="logo__img" src="assets/svg/site-logo.svg" alt="Travel Portal logo" width="30"
+                        height="30">
+                </a>
+            </div>
             <nav class="nav">
                 <ul class="nav__list">
                     <li class="nav__item">
@@ -39,14 +42,18 @@
         </header>
         <main class="main">
             <section class="preview" id="preview">
-                <h1 class="preview__title">Explore the beauty of the World</h1>
+                <h1 class="preview__title">Explore the beauty of<br>the World</h1>
                 <p class="preview__text">Recieve personalized recommendations for countries, hotels, activities and more
                 </p>
-                <input class="preview__search" type="text" placeholder="What would you like to do?">
-                <button class="button__link" href="#">Start Planning</button>
+                <div class="preview__search">
+                    <input class="preview__input" type="text" placeholder="What would you like to do?">
+                    <button class="button preview__button">
+                        <a class="button__link" href="#">Start Planning</a>
+                    </button>
+                </div>
             </section>
             <section class="steps" id="steps">
-                <h2 class="steps__title">3 steps to the perfect trip</h2>
+                <h2 class="title steps__title">3 steps to the perfect trip</h2>
                 <ul class="steps__list">
                     <li class="steps__item">
                         <img class="steps__img" src="assets/svg/steps-bicycle.svg" alt="Bicycle" width="50" height="45">
@@ -65,7 +72,7 @@
                 </ul>
             </section>
             <section class="destinations" id="destinations">
-                <h2 class="destinations__title">Popular destinations</h2>
+                <h2 class="title destinations__title">Popular destinations</h2>
                 <img class="destinations__img" src="assets/img/destinations-japan.jpg" alt="Japan" width="800"
                     height="800">
                 <p class="destinations__text">Japan</p>
@@ -79,7 +86,7 @@
                 </button>
             </section>
             <section class="stories" id="stories">
-                <h2 class="stories__title">Travel Stories</h2>
+                <h2 class="title stories__title">Travel Stories</h2>
                 <ul class="stories__list">
                     <li class="stories__item">
                         <h3 class="stories__subtitle">10 Photos of Attractive Thailand</h3>
