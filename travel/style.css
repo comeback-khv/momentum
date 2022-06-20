@@ -1,0 +1,112 @@
+@font-face {
+    font-family: "Aleo";
+    src: url(assets/fonts/Aleo-Regular-400.ttf);
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Aleo";
+    src: url(assets/fonts/Aleo-Bold-700.ttf);
+    font-style: bold;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Aleo";
+    src: url(assets/fonts/Aleo-Bold-Italic-700.ttf);
+    font-style: italic;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Magra";
+    src: url(assets/fonts/Magra-Bold-600.ttf);
+    font-style: bold;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "RedHatTetx";
+    src: url(assets/fonts/RedHatText-Medium-500.ttf);
+    font-style: normal;
+    font-weight: 500;
+}
+
+.header {}
+
+.header__title {}
+
+.logo-link {}
+
+.logo {}
+
+.nav {}
+
+.nav__list {}
+
+.nav__item {}
+
+.nav__link {}
+
+.button {}
+
+.button__link {}
+
+.main {}
+
+.preview {}
+
+.preview__title {}
+
+.preview__text {}
+
+.preview__search {}
+
+.steps {}
+
+.steps__title {}
+
+.steps__list {}
+
+.steps__item {}
+
+.steps__img {}
+
+.steps__text {}
+
+.destinations {}
+
+.destinations__title {}
+
+.destinations__img {}
+
+.destinations__text {}
+
+.stories {}
+
+.stories__title {}
+
+.stories__list {}
+
+.stories__item {}
+
+.stories__subtitle {}
+
+.stories__img {}
+
+.stories__text {}
+
+.stories__link {}
+
+.footer {}
+
+.footer__copyright {}
+
+.social-list {}
+
+.social-list__item {}
+
+.social-list__link {}
+
+.social-list__img {}
