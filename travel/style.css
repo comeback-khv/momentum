@@ -111,6 +111,7 @@
 .button {
     width: 103px;
     height: 41px;
+    cursor: pointer;
     font-family: 'Red Hat Text';
     font-weight: 500;
     font-size: 16px;
@@ -118,6 +119,7 @@
     border: none;
     border-radius: 10px;
     background: #0D606F;
+    color: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
 }
 
@@ -197,6 +199,7 @@
     left: 646px;
     width: 228px;
     height: 59px;
+    font-size: 24px;
 }
 
 .steps {
@@ -226,9 +229,16 @@
     list-style: none;
 }
 
-.steps__item {}
+.steps__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 30px;
     height: 100px;
     width: 100px;
@@ -236,10 +246,7 @@
     background: #F2785C;
 }
 
-.steps__img {
-    display: block;
-    text-align: center;
-}
+.steps__img {}
 
 .steps__text {
     margin: 0;
@@ -251,7 +258,9 @@
     color: #0D606F;
 }
 
-.destinations {}
+.destinations {
+    overflow: hidden;
+}
 
 .destinations__title {
     margin-bottom: 46px;
@@ -260,6 +269,7 @@
 .destinations__list {
     display: flex;
     margin: 0;
+    margin-left: -540px;
     padding: 0;
     list-style: none;
 }
@@ -276,6 +286,9 @@
 }
 
 .destinations__button {
+    position: relative;
+    display: block;
+    margin: 0 auto;
     margin-bottom: 80px;
 }
 
@@ -312,18 +325,24 @@
     margin-bottom: 40px;
 }
 
-.stories__button {
+.button-long {
     position: relative;
     display: block;
     margin: 0 auto;
+    width: 228px;
+    height: 59px;
+    font-size: 24px;
 }
 
-.stories__button::before {
-    content: "";
+.button-long::before {
     position: absolute;
+    content: "";
+    width: 40px;
+    height: 40px;
+    top: 9.5px;
+    left: 31px;
     background-image: url(assets/svg/arrow-right.svg);
-    top: 0px;
-    left: 0px;
+
 }
 
 .left-column {
