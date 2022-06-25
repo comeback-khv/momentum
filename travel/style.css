@@ -1,12 +1,21 @@
 @font-face {
     font-family: "Aleo";
     src: url(assets/fonts/Aleo-Regular-400.ttf);
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Aleo";
+    src: url(assets/fonts/Aleo-Regular-Italic-400.ttf);
+    font-style: italic;
     font-weight: 400;
 }
 
 @font-face {
     font-family: "Aleo";
     src: url(assets/fonts/Aleo-Bold-700.ttf);
+    font-style: normal;
     font-weight: 700;
 }
 
@@ -20,13 +29,19 @@
 @font-face {
     font-family: "Magra";
     src: url(assets/fonts/Magra-Bold-600.ttf);
+    font-style: normal;
     font-weight: 600;
 }
 
 @font-face {
     font-family: "Red Hat Text";
     src: url(assets/fonts/RedHatText-Medium-500.ttf);
+    font-style: normal;
     font-weight: 500;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .body {
@@ -35,6 +50,10 @@
     justify-content: space-between;
     min-height: 100vh;
     margin: 0;
+    background-image: url(assets/img/background-top.jpg), url(assets/img/background-bottom.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom;
+    background-size: 1440px 765px, 1440px 1331px;
 }
 
 .container {
@@ -42,9 +61,11 @@
     margin: 0 auto;
 }
 
-.background-top {
-    background-image: url(assets/img/preview-nature.jpg);
-    background-repeat: no-repeat;
+.body__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 .content-container {
@@ -53,7 +74,7 @@
 }
 
 .header {
-    background-image: linear-gradient(rgba(242, 120, 92, 0.7), rgba(242, 120, 92, 0.7)), url(assets/img/preview-nature.jpg);
+    background: rgba(242, 120, 92, 0.7);
     box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
 }
 
@@ -93,6 +114,7 @@
     height: 21px;
     margin: 0;
     padding: 0;
+    margin-right: 29px;
     list-style: none;
 }
 
@@ -108,6 +130,24 @@
     color: #FFFFFF;
 }
 
+.nav__link:hover {
+    text-decoration: underline;
+    color: #0D606F;
+    transition-duration: 1s;
+}
+
+.nav__link:active {
+    text-decoration: none;
+    color: #1b5461;
+    transition-duration: 0.5s;
+}
+
+.nav__link:focus {
+    text-decoration: none;
+    color: #3a0829;
+    transition-duration: 1s;
+}
+
 .button {
     width: 103px;
     height: 41px;
@@ -120,12 +160,25 @@
     border-radius: 10px;
     background: #0D606F;
     color: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
 }
 
-.button__link {
-    text-decoration: none;
-    color: #FFFFFF;
+.button:hover {
+    background: #0e434e;
+    transition-duration: 1s;
+}
+
+.button:active {
+    background: #04252c;
+    transition-duration: 0.5s;
+}
+
+.button:focus {
+    background: #04252c;
+    transition-duration: 1s;
+}
+
+.header__button {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
 }
 
 .main__wrapper {}
@@ -134,13 +187,12 @@
 
 .preview {
     margin-bottom: 80px;
-    background-image: url(assets/img/preview-nature.jpg);
-    background-position: center calc(-1* 90px);
 }
 
 .preview__title {
     margin: 0;
     margin-bottom: 32px;
+    padding-top: 32px;
     font-family: 'Aleo';
     font-size: 80px;
     font-weight: 700;
@@ -173,23 +225,14 @@
     border-radius: 16px;
     border: none;
     outline: none;
-    font-family: Aleo;
-    font-size: 24px;
+    font-family: 'Aleo';
     font-style: italic;
+    font-size: 24px;
     font-weight: 400;
-    line-height: 29px;
-    letter-spacing: 0em;
-    color: #F2785C;
     background: rgba(255, 255, 255, 0.7);
 }
 
 .preview__input::placeholder {
-    font-family: Aleo;
-    font-size: 24px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 29px;
-    letter-spacing: 0em;
     color: #F2785C;
 }
 
@@ -226,6 +269,7 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
+    padding: 0 12px;
     list-style: none;
 }
 
@@ -233,6 +277,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.steps__item:nth-child(2) {
+    padding-left: 71px;
 }
 
 .img-wrapper {
@@ -269,20 +317,58 @@
 .destinations__list {
     display: flex;
     margin: 0;
-    margin-left: -540px;
     padding: 0;
+    margin-left: -540px;
+    margin-bottom: 20px;
     list-style: none;
 }
 
-.destinations__item {}
+.destinations__item {
+    position: relative;
+}
 
 .destinations__img {
     border-radius: 16px;
     margin-right: 60px;
 }
 
-.destinations__text {
+.pagination__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
     margin: 0;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+.pagination__item {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    border-radius: 50%;
+    background: rgba(242, 120, 92, 0.5);
+}
+
+.pagination__item--active {
+    background: #F2785C;
+}
+
+.pagination__item:last-child {
+    margin-right: 0;
+}
+
+.destinations__text {
+    position: absolute;
+    top: 718px;
+    left: 15px;
+    margin: 0;
+    text-transform: uppercase;
+    font-family: 'Red Hat Text';
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+    color: #FFFFFF;
 }
 
 .destinations__button {
@@ -292,18 +378,9 @@
     margin-bottom: 80px;
 }
 
-.background-bottom {
-    background-image: url(assets/img/stories-nature.jpg);
-    background-repeat: no-repeat;
-    background-position: bottom;
-}
-
 .stories {
     padding-bottom: 41px;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(assets/img/stories-nature.jpg);
-    background-repeat: no-repeat, no-repeat;
-    background-position: 0px 93px, 0px 93px;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .stories__title {
@@ -314,36 +391,43 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    margin-bottom: 36px;
 }
 
 .stories__item {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
 }
 
 .stories__item:last-child {
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 
-.button-long {
+.button--long {
     position: relative;
     display: block;
     margin: 0 auto;
     width: 228px;
     height: 59px;
+    text-align: left;
+    padding-left: 83px;
     font-size: 24px;
 }
 
-.button-long::before {
+.button--long::before {
     position: absolute;
     content: "";
     width: 40px;
     height: 40px;
-    top: 9.5px;
-    left: 31px;
+    top: 8.5px;
+    left: 32px;
     background-image: url(assets/svg/arrow-right.svg);
-
 }
+
+.destinations__button-form {
+    margin-bottom: 80px;
+}
+
 
 .left-column {
     order: -1;
@@ -361,8 +445,12 @@
 }
 
 .stories__img {
-    filter: drop-shadow(0px 4px 4px #0D606F);
     border-radius: 16px;
+    filter: drop-shadow(0px 4px 4px #0D606F);
+}
+
+.stories__img:hover {
+    opacity: 0.8;
 }
 
 .stories__text {
@@ -383,10 +471,24 @@
     color: #0D606F;
 }
 
-.footer {
-    background-image: url(assets/img/stories-nature.jpg);
-    background-position: center calc(-1*1217px);
+.stories__link:hover {
+    color: #a55746;
+    transition-duration: 1s;
 }
+
+.stories__link:active {
+    color: #a55746;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+.stories__link:focus {
+    color: #a55746;
+    text-decoration: none;
+    transition-duration: 1s;
+}
+
+.footer {}
 
 .footer__container {
     display: flex;
