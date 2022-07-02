@@ -45,10 +45,6 @@ html {
 }
 
 .body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
     margin: 0;
     background-image: url(assets/img/background-top.jpg), url(assets/img/background-bottom.jpg);
     background-repeat: no-repeat, no-repeat;
@@ -69,11 +65,12 @@ html {
 }
 
 .content-container {
-    margin-left: 120px;
-    margin-right: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .header {
+    margin-bottom: 32px;
     background: rgba(242, 120, 92, 0.7);
     box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
 }
@@ -110,7 +107,8 @@ html {
 .nav__list {
     display: flex;
     justify-content: space-between;
-    width: 527px;
+    align-items: center;
+    gap: 42px;
     height: 21px;
     margin: 0;
     padding: 0;
@@ -186,13 +184,12 @@ html {
 .main {}
 
 .preview {
-    margin-bottom: 80px;
+    margin-bottom: 350px;
 }
 
 .preview__title {
     margin: 0;
     margin-bottom: 32px;
-    padding-top: 32px;
     font-family: 'Aleo';
     font-size: 80px;
     font-weight: 700;
@@ -212,24 +209,27 @@ html {
     color: #FFFFFF;
 }
 
-.preview__search {
+.preview__search-form {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 832px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .preview__input {
     box-sizing: border-box;
-    margin-bottom: 254px;
     padding-left: 41px;
-    width: 892px;
     height: 95px;
-    border-radius: 16px;
     border: none;
     outline: none;
     font-family: 'Aleo';
     font-style: italic;
     font-size: 24px;
     font-weight: 400;
-    background: rgba(255, 255, 255, 0.7);
+    background: transparent;
 }
 
 .preview__input::placeholder {
@@ -237,11 +237,9 @@ html {
 }
 
 .preview__button {
-    position: absolute;
-    top: 18px;
-    left: 646px;
     width: 228px;
     height: 59px;
+    margin-right: 20px;
     font-size: 24px;
 }
 
@@ -316,9 +314,10 @@ html {
 
 .destinations__list {
     display: flex;
+    justify-content: space-around;
+    gap: 60px;
     margin: 0;
     padding: 0;
-    margin-left: -540px;
     margin-bottom: 20px;
     list-style: none;
 }
@@ -329,7 +328,6 @@ html {
 
 .destinations__img {
     border-radius: 16px;
-    margin-right: 60px;
 }
 
 .pagination__list {
@@ -396,6 +394,9 @@ html {
 
 .stories__item {
     display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
     margin-bottom: 26px;
 }
 
@@ -431,7 +432,10 @@ html {
 
 .left-column {
     order: -1;
-    margin-right: 40px;
+}
+
+.right-column {
+    max-width: 760px;
 }
 
 .stories__subtitle {
