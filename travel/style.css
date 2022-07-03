@@ -184,7 +184,7 @@ html {
 .main {}
 
 .preview {
-    margin-bottom: 350px;
+    margin-bottom: 334px;
 }
 
 .preview__title {
@@ -214,7 +214,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 832px;
+    max-width: 892px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.7);
 }
@@ -275,10 +275,15 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 33.3%;
 }
 
-.steps__item:nth-child(2) {
-    padding-left: 71px;
+.steps__item:first-child {
+    align-items: flex-start;
+}
+
+.steps__item:last-child {
+    align-items: flex-end;
 }
 
 .img-wrapper {
@@ -296,6 +301,7 @@ html {
 
 .steps__text {
     margin: 0;
+    text-align: center;
     font-family: Aleo;
     font-size: 20px;
     font-weight: 400;
@@ -328,6 +334,12 @@ html {
 
 .destinations__img {
     border-radius: 16px;
+}
+
+.destinations__img--mobile {
+    display: none;
+    border-radius: 16px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .pagination__list {
@@ -457,6 +469,10 @@ html {
     opacity: 0.8;
 }
 
+.stories__img--mobile {
+    display: none;
+}
+
 .stories__text {
     margin: 0;
     font-family: 'Aleo';
@@ -530,3 +546,206 @@ html {
 .social-list__link {}
 
 .social-list__img {}
+
+@media screen and (max-width: 390px) {
+    .body {
+        background: url(assets/img/background-top-mobile.jpg), url(assets/img/background-bottom-mobile.jpg);
+        background-repeat: no-repeat, no-repeat;
+        background-position: top, bottom;
+        background-size: 390px 251px, 390px 693px;
+    }
+
+    .content-container {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .logo__title {
+        display: none;
+    }
+
+    .header {
+        background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 25.1%);
+        box-shadow: none;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .header__button {
+        display: none;
+    }
+
+    .preview {
+        margin-bottom: 81px;
+    }
+
+    .preview__title {
+        display: none;
+    }
+
+    .preview__text {
+        display: none;
+    }
+
+    .preview__search-form {
+        max-width: 360px;
+    }
+
+    .preview__input {
+        max-width: 240px;
+        height: 48px;
+        padding-left: 16.55px;
+        font-size: 14px;
+        line-height: 16.8px;
+    }
+
+    .preview__button {
+        width: 92px;
+        height: 30px;
+        font-size: 11px;
+        line-height: 14.55px;
+    }
+
+    .title {
+        font-size: 14px;
+        line-height: 18.52px;
+    }
+
+    .img-wrapper {
+        height: 70px;
+        width: 70px;
+    }
+
+    .steps__title {
+        margin-bottom: 20px;
+    }
+
+    .steps__img--bicycle {
+        width: 35px;
+        height: 31.5px;
+    }
+
+    .steps__img--calendar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .steps__img--airplane {
+        width: 40px;
+        height: 30px;
+    }
+
+    .steps {
+        margin-bottom: 20px;
+    }
+
+    .steps__text {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    .destinations__title {
+        margin-bottom: 20px;
+    }
+
+    .destinations__img {
+        margin-bottom: 10px;
+    }
+
+    .button--long:before {
+        width: 10px;
+        height: 10px;
+        left: 12px;
+        top: 10px;
+        background-size: contain;
+    }
+
+    .button--long {
+        width: 92px;
+        height: 30px;
+        padding-left: 28px;
+        font-size: 11px;
+        line-height: 14.55px;
+    }
+
+    .destinations {
+        position: relative;
+    }
+
+    .destinations__button-form {
+        margin-bottom: 20px;
+    }
+
+    .destinations__img {
+        display: none;
+    }
+
+    .destinations__img--mobile {
+        display: block;
+    }
+
+    .pagination__list {
+        content: "";
+        position: absolute;
+        top: 230px;
+        left: 160px;
+    }
+
+    .pagination__item {
+        width: 8px;
+        height: 8px;
+    }
+
+    .stories {
+        padding-bottom: 12px;
+    }
+
+    .stories__title {
+        margin-bottom: 20px;
+    }
+
+    .stories__subtitle {
+        margin-bottom: 10px;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 13.2px;
+    }
+
+    .stories__list {
+        margin-bottom: 10px;
+    }
+
+    .stories__item {
+        gap: 10px;
+    }
+
+    .stories__text {
+        font-size: 9px;
+        line-height: 10.8px;
+    }
+
+    .stories__link {
+        font-size: 9px;
+        line-height: 10.8px;
+    }
+
+    .stories__img {
+        display: none;
+    }
+
+    .stories__img--mobile {
+        display: block;
+        border-radius: 16px;
+        filter: drop-shadow(0px 4px 4px #0D606F);
+    }
+
+    .footer__container {
+        height: 65px;
+    }
+
+    .footer__copyright {
+        display: none;
+    }
+}
