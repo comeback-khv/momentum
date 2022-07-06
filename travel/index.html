@@ -35,9 +35,27 @@
                         <li class="nav__item">
                             <a class="nav__link" href="#stories">Travel Stories</a>
                         </li>
+                        <li class="nav__item nav__item--mobile">
+                            <a class="nav__link" href="#account">Account</a>
+                        </li>
+                        <li class="nav__item nav__item--mobile">
+                            <a class="nav__link" href="#social">Social Media</a>
+                        </li>
                     </ul>
                 </nav>
-                <form class="button-form" action="#">
+                <div class="burger">
+                    <div class="burger-menu">
+                        <span class="burger-menu__line"></span>
+                        <span class="burger-menu__line"></span>
+                        <span class="burger-menu__line"></span>
+                    </div>
+                    <div class="burger-close">
+                        <span class="burger-close__line"></span>
+                        <span class="burger-close__line"></span>
+                    </div>
+
+                </div>
+                <form class="button-form header__button-form" action="#">
                     <button class="button header__button">Login</button>
                 </form>
             </div>
@@ -114,6 +132,10 @@
                     <li class="pagination__item pagination__item--active">Japan</li>
                     <li class="pagination__item">USA</li>
                 </ul>
+                <div class="slider-arrows">
+                    <span class="slider-arrows-left"></span>
+                    <span class="slider-arrows-right"></span>
+                </div>
                 <form class="button-form destinations__button-form" action="#">
                     <button class="button button--long">Find more</button>
                 </form>
@@ -138,6 +160,12 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat. Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...</p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
@@ -163,6 +191,15 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                    Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...
+                                </p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
@@ -188,6 +225,15 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                    Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...
+                                </p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
@@ -213,6 +259,15 @@
                                     est
                                     laborum.Lorem ipsum dolor sit
                                     amet, consectetur adipiscing elit...</p>
+                                <p class="stories__text--mobile">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit, sed do eiusmod tempor
+                                    incididunt ut labore et dolore magna
+                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                    aliquip ex ea commodo consequat.
+                                    Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla.Lorem ipsum dolor sit a...
+                                </p>
                                 <a class="stories__link" href="#">Read More</a>
                             </div>
                             <div class="left-column">
@@ -232,7 +287,7 @@
         <footer class="footer">
             <div class="content-container footer__container">
                 <p class="footer__copyright">All Rights Reserved &copy; Travel Portal</p>
-                <ul class="social-list">
+                <ul class="social-list " id="social">
                     <li class="social-list__item">
                         <a class="social-list__link" href="https://github.com/comeback-khv">
                             <img class="social-list__img" src="assets/svg/social-instagram.svg" alt="Instagram"
@@ -255,6 +310,7 @@
             </div>
         </footer>
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
