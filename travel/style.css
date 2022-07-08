@@ -40,16 +40,6 @@
     font-weight: 500;
 }
 
-@keyframes burger-appearance {
-    0% {
-        right: -250px;
-    }
-
-    100% {
-        right: 0px;
-    }
-}
-
 html {
     scroll-behavior: smooth;
 }
@@ -364,6 +354,7 @@ html {
     display: none;
     border-radius: 16px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: calc(100vw - 30px);
 }
 
 .pagination__list {
@@ -475,6 +466,8 @@ html {
 }
 
 .right-column {
+    display: flex;
+    flex-direction: column;
     max-width: 760px;
 }
 
@@ -565,6 +558,8 @@ html {
     list-style: none;
     margin: 0;
     padding: 0;
+    padding-left: 10px;
+    padding-top: 5px;
 }
 
 .social-list__item {
@@ -580,6 +575,17 @@ html {
 .social-list__img {}
 
 @media screen and (max-width: 390px) {
+
+    .body--active::after {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 1475px;
+        width: 100%;
+        background: black;
+        opacity: 0.4;
+    }
 
     .body--active {
         overflow: hidden;
@@ -606,9 +612,29 @@ html {
         display: none;
     }
 
-    .header {
-        margin-bottom: 67px;
+    .logo__link {
+        display: flex;
+    }
+
+    .logo__img {
+        margin-right: 0px;
+    }
+
+    .header:before {
+        position: absolute;
+        content: "";
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 251px;
         background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 25.1%);
+        z-index: -1;
+    }
+
+    .header {
+        position: relative;
+        margin-bottom: 67px;
+        background: none;
         box-shadow: none;
     }
 
@@ -627,18 +653,18 @@ html {
         gap: 0px;
         height: 250px;
         margin: 0;
-        padding: 44px 15px 44px 30px;
+        padding: 44px 19px 44px 44px;
         background: #F2785C;
         box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
         border-radius: 10px;
         z-index: 1;
         transform: translateX(100%);
-        transition: .3s all linear;
+        transition: .1s all linear;
     }
 
     .nav__list--active {
         transform: translateX(0%);
-        transition: .3s all linear;
+        transition: .1s all linear;
     }
 
     .nav__item {
@@ -647,6 +673,10 @@ html {
 
     .nav__item--mobile {
         display: block;
+    }
+
+    .burger {
+        margin-right: 9px;
     }
 
     .burger-menu {
@@ -677,9 +707,9 @@ html {
 
     .burger-close__line {
         position: absolute;
-        top: 14px;
-        right: 131px;
-        width: 15px;
+        top: 29px;
+        right: 136px;
+        width: 20px;
         height: 1px;
         cursor: pointer;
         background: rgba(255, 255, 255, 0.7);
@@ -718,6 +748,7 @@ html {
         max-width: 240px;
         height: 48px;
         padding-left: 16.55px;
+        padding-top: 4px;
         font-size: 14px;
         line-height: 16.8px;
     }
@@ -735,10 +766,22 @@ html {
         line-height: 18.52px;
     }
 
+    .steps__wrapper--left {
+        align-items: start;
+    }
+
+    .steps__wrapper--center {
+        align-items: center;
+    }
+
+    .steps__wrapper--right {
+        align-items: end;
+    }
+
     .img-wrapper {
         height: 70px;
         width: 70px;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
     }
 
     .steps__title {
@@ -773,6 +816,21 @@ html {
         line-height: 12px;
     }
 
+    .steps__text--left {
+        width: 94px;
+        text-align: left;
+    }
+
+    .steps__text--center {
+        width: 111px;
+        text-align: center;
+    }
+
+    .steps__text--right {
+        width: 98px;
+        text-align: right;
+    }
+
     .destinations__title {
         margin-bottom: 20px;
     }
@@ -784,7 +842,7 @@ html {
     .button--long:before {
         width: 10px;
         height: 10px;
-        left: 12px;
+        left: 13px;
         top: 10px;
         background-size: contain;
     }
@@ -792,13 +850,24 @@ html {
     .button--long {
         width: 92px;
         height: 30px;
-        padding-left: 28px;
+        padding-left: 29px;
         font-size: 11px;
         line-height: 14.55px;
     }
 
     .destinations__list {
         margin-bottom: 10px;
+    }
+
+    .destinations__item:nth-child(2) {
+        order: -1;
+    }
+
+    .destinations__text {
+        top: 8px;
+        left: 15px;
+        font-size: 20px;
+        line-height: 24.46px;
     }
 
     .destinations__button-form {
@@ -814,41 +883,40 @@ html {
     }
 
     .pagination__list {
-        position: absolute;
-        top: 420px;
-        left: 61px;
+        margin-bottom: 0px;
     }
 
     .pagination__item {
         width: 8px;
         height: 8px;
+        z-index: 1;
+        margin-top: -29px;
+        margin-right: 6px;
     }
 
     .slider-arrows {
-        display: block;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 25px;
     }
 
     .slider-arrows-left {
         display: block;
-        position: absolute;
-        top: 0px;
-        left: 0px;
         width: 15px;
         height: 26px;
         background-image: url(assets/svg/slider-arrow.svg);
         transform: rotate(-180deg);
         opacity: 0.5;
+        margin-top: -127px;
     }
 
     .slider-arrows-right {
         display: block;
-        position: absolute;
-        top: 40px;
-        left: 0px;
         width: 15px;
         height: 26px;
         background-image: url(assets/svg/slider-arrow.svg);
         transform: rotate(0deg);
+        margin-top: -127px;
     }
 
     .stories {
@@ -856,7 +924,7 @@ html {
     }
 
     .stories__title {
-        margin-bottom: 20px;
+        margin-bottom: 21px;
     }
 
     .stories__subtitle {
@@ -874,7 +942,7 @@ html {
     .stories__item {
         flex-wrap: nowrap;
         gap: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .stories__text {
@@ -885,7 +953,7 @@ html {
         display: block;
         margin: 0;
         font-size: 9px;
-        line-height: 10.8px;
+        line-height: 11px;
         font-family: 'Aleo';
         font-weight: 400;
         color: #0D606F;
@@ -893,7 +961,7 @@ html {
 
     .stories__link {
         font-size: 9px;
-        line-height: 10.8px;
+        line-height: 11.91px;
     }
 
     .stories__img {
