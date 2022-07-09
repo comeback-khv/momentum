@@ -544,12 +544,18 @@ html {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    height: 61px;
+    min-height: 61px;
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 730.5px;
 }
 
 .footer__copyright {
     margin: 0;
-    margin-right: 319px;
     font-family: 'Red Hat Text';
     font-weight: 500;
     font-size: 16px;
@@ -611,6 +617,10 @@ html {
     .content-container {
         max-width: 360px;
         margin: 0 auto;
+    }
+
+    .logo {
+        margin-right: 0px;
     }
 
     .logo__title {
@@ -983,6 +993,10 @@ html {
     .footer__container {
         justify-content: center;
         height: 65px;
+    }
+
+    .footer__wrapper {
+        width: auto;
     }
 
     .footer__copyright {
