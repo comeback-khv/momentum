@@ -79,11 +79,15 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 90px;
+    flex-wrap: wrap;
+    min-height: 90px;
 }
 
 .logo {
     display: flex;
+    min-width: 208px;
+    margin-right: 68px;
+    ;
 }
 
 .logo__title {
@@ -109,10 +113,8 @@ html {
     justify-content: space-between;
     align-items: center;
     gap: 42px;
-    height: 21px;
     margin: 0;
     padding: 0;
-    margin-left: 68px;
     list-style: none;
 }
 
@@ -222,6 +224,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
     max-width: 892px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.7);
@@ -229,8 +232,9 @@ html {
 
 .preview__input {
     box-sizing: border-box;
-    padding-left: 41px;
+    width: 65%;
     height: 95px;
+    padding-left: 41px;
     border: none;
     outline: none;
     font-family: 'Aleo';
@@ -482,6 +486,7 @@ html {
 }
 
 .stories__img {
+    width: 100%;
     border-radius: 16px;
     filter: drop-shadow(0px 4px 4px #0D606F);
 }
@@ -640,7 +645,8 @@ html {
 
     .header__container {
         align-items: end;
-        height: 75px;
+        flex-wrap: nowrap;
+        min-height: 75px;
     }
 
     .nav__list {
@@ -864,7 +870,7 @@ html {
     }
 
     .destinations__text {
-        top: 8px;
+        top: 10px;
         left: 15px;
         font-size: 20px;
         line-height: 24.46px;
@@ -897,7 +903,7 @@ html {
     .slider-arrows {
         display: flex;
         justify-content: space-between;
-        margin: 0 25px;
+        margin: 0 26px;
     }
 
     .slider-arrows-left {
