@@ -112,7 +112,7 @@ html {
     height: 21px;
     margin: 0;
     padding: 0;
-    margin-right: 29px;
+    margin-left: 68px;
     list-style: none;
 }
 
@@ -544,7 +544,7 @@ html {
 
 .footer__copyright {
     margin: 0;
-    margin-right: 328px;
+    margin-right: 319px;
     font-family: 'Red Hat Text';
     font-weight: 500;
     font-size: 16px;
