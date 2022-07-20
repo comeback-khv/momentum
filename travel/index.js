@@ -6,7 +6,12 @@ console.log("1.Вёрстка соответствует макету.Ширин
         const burgerClose = document.querySelector('.burger-close');
         const navLinks = document.querySelectorAll('.nav__link');
         const body = document.querySelector('.body');
-        const bodyActive = document.querySelector('.body--active');
+        const login = document.querySelector('.header__button');
+        const popUp = document.querySelector('.pop-up')
+        const account = document.querySelector('.nav__link--account')
+        const submit = document.querySelector('.pop-up-form-sign-in')
+        const loginInput = document.getElementById("username")
+        const passInput = document.getElementById("userpass")
 
         burgerItem.addEventListener('click', () => {
             burgerClose.classList.add('burger-close--active');
@@ -35,5 +40,27 @@ console.log("1.Вёрстка соответствует макету.Ширин
                 body.classList.remove('body--active');
             });
         }
-    }
-        ());
+
+        login.addEventListener('click', () => {
+            popUp.classList.add('pop-up--active');
+            body.classList.add('body--active');
+        })
+
+        document.addEventListener('click', (event => {
+        if (event.target.classList.contains('pop-up__container')) {
+            popUp.classList.remove('pop-up--active')
+            body.classList.remove('body--active');
+        } else return
+        }))
+            
+        account.addEventListener('click', () => {
+            popUp.classList.add('pop-up--active');
+            body.classList.add('body--active');
+        })
+
+       submit.addEventListener('click', () => {
+            alert('Login: ' + loginInput.value + ' ' + 'Password: ' + passInput.value)
+       })
+
+       }
+       ());
