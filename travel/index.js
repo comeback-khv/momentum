@@ -12,6 +12,14 @@ console.log("1.Вёрстка соответствует макету.Ширин
         const submit = document.querySelector('.pop-up-form-sign-in')
         const loginInput = document.getElementById("username")
         const passInput = document.getElementById("userpass")
+        const registerBtn = document.querySelector('.pop-up-form-register__link')
+        const popUpTitle = document.querySelector('.pop-up__title')
+        const popUpFormSocialList = document.querySelector('.pop-up-form__social-list')
+        const popUpFormText = document.querySelector('.pop-up-form__text');
+        const popUpFormForgotLink = document.querySelector('.pop-up-form-forgot-link');
+        const popUpFormRegisterText = document.querySelector('.pop-up-form-register__text');
+        const popUpFormSignIn = document.querySelector('.pop-up-form-sign-in');
+
 
         burgerItem.addEventListener('click', () => {
             burgerClose.classList.add('burger-close--active');
@@ -60,6 +68,25 @@ console.log("1.Вёрстка соответствует макету.Ширин
 
        submit.addEventListener('click', () => {
             alert('Login: ' + loginInput.value + ' ' + 'Password: ' + passInput.value)
+       })
+
+       registerBtn.addEventListener('click', () => {
+          popUpTitle.innerHTML = "Create account";
+          popUpFormSocialList.remove();
+          popUpFormText.remove();
+          popUpFormForgotLink.remove();
+          popUpFormRegisterText.innerHTML = "Already have an account?";
+          registerBtn.innerHTML = "Log in";
+       })
+
+       registerBtn.addEventListener('click', () => {
+          popUpTitle.innerHTML = "Create account";
+          popUpFormSocialList.remove();
+          popUpFormText.remove();
+          popUpFormForgotLink.remove();
+          popUpFormRegisterText.innerHTML = "Already have an account?";
+          registerBtn.innerHTML = "Log in";
+          popUpFormSignIn.innerHTML = "Sign up";
        })
 
        }

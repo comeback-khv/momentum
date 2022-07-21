@@ -306,7 +306,7 @@ html {
     width: 261px;
     height: 1px;
     content: "";
-    left: 1px;
+    left: 299px;
     top: 11px;
     background-color: #0D606F80;
 }
@@ -316,7 +316,7 @@ html {
     width: 261px;
     height: 1px;
     content: "";
-    right: -1px;
+    right: 299px;
     top: 11px;
     background-color: #0D606F80;
 }
