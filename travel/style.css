@@ -706,9 +706,33 @@ html {
 }
 
 .slider-arrows {
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    top: 0px;
 }
 
+.slider-arrows-left {
+    display: block;
+    width: 260px;
+    height: 800px;
+    background-color: transparent;
+    transform: rotate(-180deg);
+    margin-top: -884px;
+}
+
+.slider-arrows-right {
+    display: block;
+    width: 260px;
+    height: 800px;
+    background-color: transparent;
+    transform: rotate(0deg);
+    margin-top: -884px;
+}
+
+.slider-arrows--disabled {
+    opacity: 0.5;
+    transition: 0.5s all linear;
+}
 
 .destinations__text {
     position: absolute;
@@ -1221,12 +1245,14 @@ html {
         display: flex;
         justify-content: space-between;
         margin: 0 26px;
+        top: 0px;
     }
 
     .slider-arrows-left {
         display: block;
         width: 15px;
         height: 26px;
+        background-color: transparent;
         background-image: url(assets/svg/slider-arrow.svg);
         transform: rotate(-180deg);
         margin-top: -127px;
@@ -1236,6 +1262,7 @@ html {
         display: block;
         width: 15px;
         height: 26px;
+        background-color: transparent;
         background-image: url(assets/svg/slider-arrow.svg);
         transform: rotate(0deg);
         margin-top: -127px;

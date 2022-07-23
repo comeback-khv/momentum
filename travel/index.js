@@ -113,53 +113,99 @@ console.log("1.Вёрстка соответствует макету.Ширин
         });
     });
 
-    arrowLeft.addEventListener('click', () => {
-        if (slideNumber == 2) {
-            newDistance = imagesMobileSize + 11
-            sliderList.classList.add('animation');
-            slideNumber--;
-            sliderList.style.transform = 'translateX(' + `${(newDistance)}px)`;
-            paginationItem[0].classList.add('pagination__item--active')
-            paginationItem[1].classList.remove('pagination__item--active')
-            arrowLeft.classList.add('slider-arrows--disabled')
-            console.log(slideNumber);;
-        }
-        else if (slideNumber == 3) {
-            newDistance = imagesMobileSize;
-            sliderList.classList.add('animation');
-            slideNumber--;
-            sliderList.style.transform = 'translateX(' + `${(0)}px)`;
-            paginationItem[1].classList.add('pagination__item--active')
-            paginationItem[2].classList.remove('pagination__item--active')
-            arrowRight.classList.remove('slider-arrows--disabled')
-            console.log(slideNumber);
-        };
-    })
+    if (window.innerWidth <= 391) {
+        arrowLeft.addEventListener('click', () => {
+            if (slideNumber == 2) {
+                newDistance = imagesMobileSize + 11
+                sliderList.classList.add('animation');
+                slideNumber--;
+                sliderList.style.transform = 'translateX(' + `${(newDistance)}px)`;
+                paginationItem[0].classList.add('pagination__item--active')
+                paginationItem[1].classList.remove('pagination__item--active')
+                arrowLeft.classList.add('slider-arrows--disabled')
+                console.log(slideNumber);;
+            }
+            else if (slideNumber == 3) {
+                newDistance = imagesMobileSize;
+                sliderList.classList.add('animation');
+                slideNumber--;
+                sliderList.style.transform = 'translateX(' + `${(0)}px)`;
+                paginationItem[1].classList.add('pagination__item--active')
+                paginationItem[2].classList.remove('pagination__item--active')
+                arrowRight.classList.remove('slider-arrows--disabled')
+                console.log(slideNumber);
+            };
+        })
 
-    arrowRight.addEventListener('click', () => {
-        if (slideNumber == 2) {
-            newDistance = imagesMobileSize + 11
-            sliderList.classList.add('animation');
-            slideNumber++;
-            sliderList.style.transform = 'translateX(' + `${(-newDistance)}px)`;
-            paginationItem[2].classList.add('pagination__item--active')
-            paginationItem[1].classList.remove('pagination__item--active')
-            arrowRight.classList.add('slider-arrows--disabled')
-            console.log(slideNumber);;
-        }
-        else if (slideNumber == 1) {
-            newDistance = imagesMobileSize;
-            sliderList.classList.add('animation');
-            slideNumber++;
-            sliderList.style.transform = 'translateX(' + `${(0)}px)`;
-            paginationItem[1].classList.add('pagination__item--active')
-            paginationItem[0].classList.remove('pagination__item--active')
-            arrowLeft.classList.remove('slider-arrows--disabled')
-            console.log(slideNumber);
-        };
-    })
+        arrowRight.addEventListener('click', () => {
+            if (slideNumber == 2) {
+                newDistance = imagesMobileSize + 11
+                sliderList.classList.add('animation');
+                slideNumber++;
+                sliderList.style.transform = 'translateX(' + `${(-newDistance)}px)`;
+                paginationItem[2].classList.add('pagination__item--active')
+                paginationItem[1].classList.remove('pagination__item--active')
+                arrowRight.classList.add('slider-arrows--disabled')
+                console.log(slideNumber);;
+            }
+            else if (slideNumber == 1) {
+                newDistance = imagesMobileSize;
+                sliderList.classList.add('animation');
+                slideNumber++;
+                sliderList.style.transform = 'translateX(' + `${(0)}px)`;
+                paginationItem[1].classList.add('pagination__item--active')
+                paginationItem[0].classList.remove('pagination__item--active')
+                arrowLeft.classList.remove('slider-arrows--disabled')
+                console.log(slideNumber);
+            };
+        })
+    } else if (window.innerWidth >= 391) {
+        arrowLeft.addEventListener('click', () => {
+            if (slideNumber == 2) {
+                newDistance = imagesDesktopSize + 60
+                sliderList.classList.add('animation');
+                slideNumber--;
+                sliderList.style.transform = 'translateX(' + `${(newDistance)}px)`;
+                paginationItem[0].classList.add('pagination__item--active')
+                paginationItem[1].classList.remove('pagination__item--active')
+                arrowLeft.classList.add('slider-arrows--disabled')
+                console.log(slideNumber);;
+            }
+            else if (slideNumber == 3) {
+                newDistance = imagesDesktopSize;
+                sliderList.classList.add('animation');
+                slideNumber--;
+                sliderList.style.transform = 'translateX(' + `${(0)}px)`;
+                paginationItem[1].classList.add('pagination__item--active')
+                paginationItem[2].classList.remove('pagination__item--active')
+                arrowRight.classList.remove('slider-arrows--disabled')
+                console.log(slideNumber);
+            };
+        })
 
-
+        arrowRight.addEventListener('click', () => {
+            if (slideNumber == 2) {
+                newDistance = imagesDesktopSize + 60
+                sliderList.classList.add('animation');
+                slideNumber++;
+                sliderList.style.transform = 'translateX(' + `${(-newDistance)}px)`;
+                paginationItem[2].classList.add('pagination__item--active')
+                paginationItem[1].classList.remove('pagination__item--active')
+                arrowRight.classList.add('slider-arrows--disabled')
+                console.log(slideNumber);;
+            }
+            else if (slideNumber == 1) {
+                newDistance = imagesDesktopSize;
+                sliderList.classList.add('animation');
+                slideNumber++;
+                sliderList.style.transform = 'translateX(' + `${(0)}px)`;
+                paginationItem[1].classList.add('pagination__item--active')
+                paginationItem[0].classList.remove('pagination__item--active')
+                arrowLeft.classList.remove('slider-arrows--disabled')
+                console.log(slideNumber);
+            };
+        })
+    }
 }
     ());
 
