@@ -19,10 +19,6 @@ console.log("1.Вёрстка соответствует макету.Ширин
     const popUpFormForgotLink = document.querySelector('.pop-up-form-forgot-link');
     const popUpFormRegisterText = document.querySelector('.pop-up-form-register__text');
     const popUpFormSignIn = document.querySelector('.pop-up-form-sign-in');
-    const sliderItemLeft = document.querySelector('#slider-item-left');
-    const sliderItemActive = document.querySelector('#slider-item-active');
-    const sliderItemRight = document.querySelector('#slider-item-right');
-    const sliderItem = document.querySelector('.destinations__item');
     const sliderList = document.querySelector('.destinations__list');
     const imagesDesktop = document.querySelectorAll('.destinations__img');
     const imagesMobile = document.querySelectorAll('.destinations__img--mobile');
@@ -68,7 +64,7 @@ console.log("1.Вёрстка соответствует макету.Ширин
 
     document.addEventListener('click', (event => {
         if (event.target.classList.contains('pop-up__container')) {
-            popUp.classList.remove('pop-up--active')
+            popUp.classList.remove('pop-up--active');
             body.classList.remove('body--active');
         } else return
     }))
@@ -79,16 +75,7 @@ console.log("1.Вёрстка соответствует макету.Ширин
     })
 
     submit.addEventListener('click', () => {
-        alert('Login: ' + loginInput.value + ' ' + 'Password: ' + passInput.value)
-    })
-
-    registerBtn.addEventListener('click', () => {
-        popUpTitle.innerHTML = "Create account";
-        popUpFormSocialList.remove();
-        popUpFormText.remove();
-        popUpFormForgotLink.remove();
-        popUpFormRegisterText.innerHTML = "Already have an account?";
-        registerBtn.innerHTML = "Log in";
+        alert('Login: ' + loginInput.value + '\n' + 'Password: ' + passInput.value)
     })
 
     registerBtn.addEventListener('click', () => {
@@ -102,7 +89,6 @@ console.log("1.Вёрстка соответствует макету.Ширин
     })
 
     // slider
-    let counter = 0;
     let slideNumber = 2;
     const imagesDesktopSize = imagesDesktop[0].offsetWidth;
     const imagesMobileSize = imagesMobile[0].offsetWidth;
