@@ -51,6 +51,41 @@ html {
     scroll-behavior: smooth;
 }
 
+@keyframes move-right {
+    from {
+        left: -540px;
+    }
+
+    to {
+        left: -1400px;
+    }
+}
+
+@keyframes move-left {
+    from {
+        left: -540px;
+    }
+
+    to {
+        left: 320px;
+    }
+}
+
+
+.animation-right {
+    animation-name: move-right;
+    animation-duration: 5s;
+}
+
+.animation-left {
+    animation-name: move-left;
+    animation-duration: 5s;
+}
+
+.animation {
+    transition: 1s all;
+}
+
 .body {
     margin: 0;
     background-image: url(assets/img/background-top.jpg), url(assets/img/background-bottom.jpg);
@@ -172,14 +207,13 @@ html {
     height: 100%;
     position: fixed;
     left: 0px;
-    top: 0px;
+    top: -900px;
     z-index: 2;
-    transform: translateY(-200%);
     transition: .2s all linear;
 }
 
 .pop-up--active {
-    transform: translateY(0%);
+    top: 0px
 }
 
 .pop-up__container {
@@ -664,6 +698,7 @@ html {
 
 .pagination__item--active {
     background: #F2785C;
+    transition: 0.5s all linear;
 }
 
 .pagination__item:last-child {
@@ -673,6 +708,7 @@ html {
 .slider-arrows {
     display: none;
 }
+
 
 .destinations__text {
     position: absolute;
@@ -1144,11 +1180,10 @@ html {
     }
 
     .destinations__list {
+        position: relative;
+        gap: 11px;
+        left: 0x;
         margin-bottom: 10px;
-    }
-
-    .destinations__item:nth-child(2) {
-        order: -1;
     }
 
     .destinations__text {
@@ -1194,7 +1229,6 @@ html {
         height: 26px;
         background-image: url(assets/svg/slider-arrow.svg);
         transform: rotate(-180deg);
-        opacity: 0.5;
         margin-top: -127px;
     }
 
@@ -1205,6 +1239,11 @@ html {
         background-image: url(assets/svg/slider-arrow.svg);
         transform: rotate(0deg);
         margin-top: -127px;
+    }
+
+    .slider-arrows--disabled {
+        opacity: 0.5;
+        transition: 0.5s all linear;
     }
 
     .stories {
