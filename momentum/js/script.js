@@ -44,13 +44,16 @@ function showGreeting() {
 function setLocalStorage() {
     const name = document.querySelector('.name')
     localStorage.setItem('name', name.value);
+    localStorage.setItem('city', city.value)
 }
 window.addEventListener('beforeunload', setLocalStorage)
-
 function getLocalStorage() {
     const name = document.querySelector('.name')
     if (localStorage.getItem('name')) {
         name.value = localStorage.getItem('name');
+    }
+    if (localStorage.getItem('city')) {
+        city.value = localStorage.getItem('city');
     }
 }
 window.addEventListener('load', getLocalStorage)
@@ -81,10 +84,49 @@ function getSlidePrev() {
         BgNum = '21';
     }
     BgNum = (Number(BgNum) - 1).toString().padStart(2, 0);;
-    console.log(typeof (BgNum))
     setBg()
 }
 const slideNext = document.querySelector('.slide-next')
 const slidePrev = document.querySelector('.slide-prev')
 slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
+const city = document.querySelector('.city')
+city.value = 'Minsk'
+async function getWeather() {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=e4a989e855ac16126d1cab47073def89&units=metric`
+    const res = await fetch(url);
+    const data = await res.json();
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    temperature.textContent = `${Math.ceil(data.main.temp)}°C`;
+    weatherDescription.textContent = data.weather[0].description;
+    wind.textContent = `Wind speed: ${Math.ceil(data.wind.speed)} m/s`;
+    humidity.textContent = `Humidity: ${data.main.humidity}%`
+}
+getWeather()
+
+
+const weatherIcon = document.querySelector('.weather-icon')
+const temperature = document.querySelector('.temperature')
+const weatherDescription = document.querySelector('.weather-description')
+const wind = document.querySelector('.wind')
+const humidity = document.querySelector('.humidity')
+
+city.addEventListener('change', getWeather)
+
+async function getQuotes() {
+    const quotes = 'js/data.json';
+    const res = await fetch(quotes);
+    const data = await res.json()
+    const quote = document.querySelector('.quote');
+    const author = document.querySelector('.author');
+    const quoteRandom = Math.round(Math.random() * 19);
+    quote.textContent = data[quoteRandom].text;
+    author.textContent = data[quoteRandom].author;
+}
+getQuotes();
+
+const changeQuote = document.querySelector('.change-quote');
+changeQuote.addEventListener('click', getQuotes)
+
+
