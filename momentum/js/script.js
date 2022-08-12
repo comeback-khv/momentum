@@ -1,6 +1,16 @@
 // imports
 import playList from './playList.js';
 
+// menu
+const menuIcon = document.querySelector('.footer__settings');
+const menu = document.querySelector('.menu');
+function openMenu() {
+    if (menu.style.display = 'none') {
+        menu.style.display = 'block';
+    }
+}
+menuIcon.addEventListener('click', openMenu)
+
 // timeAndDate
 function showTime() {
     const time = document.querySelector('.time');
