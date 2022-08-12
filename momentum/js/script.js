@@ -1,3 +1,7 @@
+// imports
+import playList from './playList.js';
+
+// timeAndDate
 function showTime() {
     const time = document.querySelector('.time');
     const date = new Date();
@@ -34,6 +38,7 @@ function getTimeOfDay() {
     }
 }
 
+// greeting
 function showGreeting() {
     const greeting = document.querySelector('.greeting')
     const timeOfDay = getTimeOfDay();
@@ -41,25 +46,10 @@ function showGreeting() {
     greeting.textContent = greetingText;
     setTimeout(showGreeting, 1000);
 }
-function setLocalStorage() {
-    const name = document.querySelector('.name')
-    localStorage.setItem('name', name.value);
-    localStorage.setItem('city', city.value)
-}
-window.addEventListener('beforeunload', setLocalStorage)
-function getLocalStorage() {
-    const name = document.querySelector('.name')
-    if (localStorage.getItem('name')) {
-        name.value = localStorage.getItem('name');
-    }
-    if (localStorage.getItem('city')) {
-        city.value = localStorage.getItem('city');
-    }
-}
-window.addEventListener('load', getLocalStorage)
 
 function getRandomNum() {
-    return randomNumber = (Math.floor(Math.random() * 21)).toString().padStart(2, 0);
+    const randomNumber = (Math.floor(Math.random() * 21)).toString().padStart(2, 0);
+    return randomNumber;
 }
 let BgNum = getRandomNum();
 function setBg() {
@@ -105,6 +95,24 @@ async function getWeather() {
 }
 getWeather()
 
+// localStorage
+function setLocalStorage() {
+    const name = document.querySelector('.name')
+    localStorage.setItem('name', name.value);
+    localStorage.setItem('city', city.value)
+}
+window.addEventListener('beforeunload', setLocalStorage)
+function getLocalStorage() {
+    const name = document.querySelector('.name')
+    if (localStorage.getItem('name')) {
+        name.value = localStorage.getItem('name');
+    }
+    if (localStorage.getItem('city')) {
+        city.value = localStorage.getItem('city');
+    }
+}
+window.addEventListener('load', getLocalStorage)
+
 
 const weatherIcon = document.querySelector('.weather-icon')
 const temperature = document.querySelector('.temperature')
@@ -114,6 +122,7 @@ const humidity = document.querySelector('.humidity')
 
 city.addEventListener('change', getWeather)
 
+// quotes
 async function getQuotes() {
     const quotes = 'js/data.json';
     const res = await fetch(quotes);
@@ -127,6 +136,61 @@ async function getQuotes() {
 getQuotes();
 
 const changeQuote = document.querySelector('.change-quote');
-changeQuote.addEventListener('click', getQuotes)
+changeQuote.addEventListener('click', getQuotes);
+
+// audioPlayer
+let isPlay = false;
+const audio = new Audio();
+function playAudio() {
+    if (isPlay == false) {
+        audio.src = playList[playNum].src;
+        audio.currentTime = 0;
+        audio.play();
+        isPlay = true;
+        play.classList.add('pause');
+        playItem[playNum].classList.add('item-active');
+    } else if (isPlay == true) {
+        audio.pause();
+        isPlay = false;
+        play.classList.remove('pause');
+    }
+
+}
+const play = document.querySelector('.play');
+for (let i = 0; i < playList.length; i++) {
+    const li = document.createElement('li');
+    const playListUl = document.querySelector('.play-list')
+    li.classList.add('play-item')
+    li.textContent = playList[i].title;
+    playListUl.append(li)
+}
+const playItem = document.querySelectorAll('.play-item')
+const playerIcon = document.querySelector('.player-icon')
+play.addEventListener('click', playAudio)
+let playNum = 0
+function playPrev() {
+    playItem[playNum].classList.remove('item-active');
+    playNum -= 1;
+    isPlay = false;
+    if (playNum == -1) {
+        playNum = playList.length - 1
+    }
+    playAudio()
+    playItem[playNum].classList.add('item-active');
+}
+function playNext() {
+    playItem[playNum].classList.remove('item-active');
+    playNum += 1;
+    isPlay = false;
+    if (playNum == playList.length) {
+        playNum = 0
+    }
+    playAudio()
+    playItem[playNum].classList.add('item-active');
+}
+const playPrevBtn = document.querySelector('.play-prev');
+const playNextBtn = document.querySelector('.play-next');
+playPrevBtn.addEventListener('click', playPrev);
+playNextBtn.addEventListener('click', playNext);
 
 
