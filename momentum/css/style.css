@@ -359,6 +359,13 @@ body {
   cursor: pointer;
 }
 
+.image-tags__text {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .widgets__text {
   padding: 5px;
   margin-right: 10px;

@@ -222,7 +222,16 @@ playNextBtn.addEventListener('click', playNext);
 // imageApi
 
 async function getLinkToImageUnsplash() {
-    const timeOfDay = getTimeOfDay();
+    let timeOfDay = getTimeOfDay();
+    if (mountains.classList.contains('active-tag')) {
+        timeOfDay = 'mountains';
+    }
+    if (water.classList.contains('active-tag')) {
+        timeOfDay = 'water';
+    }
+    if (armenia.classList.contains('active-tag')) {
+        timeOfDay = 'armenia';
+    }
     const imageUrl = `https://api.unsplash.com/photos/random?orientation=landscape&query=${timeOfDay}&client_id=sVHBfL4xfck6_oe_5pbmD9FaTIZb60S3H-73Wuoj8D0`;
     const res = await fetch(imageUrl);
     const data = await res.json();
@@ -235,12 +244,22 @@ async function getLinkToImageUnsplash() {
 }
 
 async function getLinkToImageFlickr() {
-    const timeOfDay = getTimeOfDay();
+    let timeOfDay = getTimeOfDay();
+    if (mountains.classList.contains('active-tag')) {
+        timeOfDay = 'mountains';
+    }
+    if (water.classList.contains('active-tag')) {
+        timeOfDay = 'water';
+    }
+    if (armenia.classList.contains('active-tag')) {
+        timeOfDay = 'armenia';
+    }
+    console.log(timeOfDay)
     const imageUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=b90c30c7389a881fb786183065ef8aca&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(imageUrl);
     const data = await res.json();
     const body = document.querySelector('.body');
-    const img = new Image ();
+    const img = new Image();
     img.src = data.photos.photo[parseInt(BgNum, 10)].url_l;
     img.onload = () => {
         body.style.backgroundImage = `url(${data.photos.photo[parseInt(BgNum, 10)].url_l})`;
@@ -268,6 +287,9 @@ const audioplayerMenu = document.getElementById('Audioplayer');
 const audioplayer = document.querySelector('.player');
 const toDoMenu = document.getElementById('ToDo');
 const toDo = document.querySelector('.time');
+const mountains = document.getElementById('Mountains');
+const water = document.getElementById('Water');
+const armenia = document.getElementById('Armenia');
 
 
 flickrMenu.addEventListener('click', () => {
@@ -332,7 +354,46 @@ audioplayerMenu.addEventListener('click', () => {
     audioplayer.classList.toggle('hide');
     audioplayerMenu.classList.toggle('active');
 })
+mountains.addEventListener('click', () => {
+    mountains.classList.toggle('active-tag');
+    mountains.classList.toggle('active');
+    armenia.classList.remove('active-tag');
+    armenia.classList.remove('active');
+    water.classList.remove('active-tag');
+    water.classList.remove('active');
+    if (flickrMenu.classList.contains('active-api')) {
+        getLinkToImageFlickr()
+    } else if (unsplashMenu.classList.contains('active-api')) {
+        getLinkToImageUnsplash()
+    }
+})
+water.addEventListener('click', () => {
+    water.classList.toggle('active-tag');
+    water.classList.toggle('active');
+    armenia.classList.remove('active-tag');
+    armenia.classList.remove('active');
+    mountains.classList.remove('active-tag');
+    mountains.classList.remove('active');
+    if (flickrMenu.classList.contains('active-api')) {
+        getLinkToImageFlickr()
+    } else if (unsplashMenu.classList.contains('active-api')) {
+        getLinkToImageUnsplash()
+    }
+})
+armenia.addEventListener('click', () => {
+    armenia.classList.toggle('active-tag');
+    armenia.classList.toggle('active');
+    water.classList.remove('active-tag');
+    water.classList.remove('active');
+    mountains.classList.remove('active-tag');
+    water.classList.remove('active');
+    if (flickrMenu.classList.contains('active-api')) {
+        getLinkToImageFlickr()
+    } else if (unsplashMenu.classList.contains('active-api')) {
+        getLinkToImageUnsplash()
+    }
+})
 todoMenu.addEventListener('click', () => {
     todo.classList.toggle('hide');
     toDoMenu.classList.toggle('active');
-}) 
+})
