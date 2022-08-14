@@ -226,8 +226,12 @@ async function getLinkToImageUnsplash() {
     const imageUrl = `https://api.unsplash.com/photos/random?orientation=landscape&query=${timeOfDay}&client_id=sVHBfL4xfck6_oe_5pbmD9FaTIZb60S3H-73Wuoj8D0`;
     const res = await fetch(imageUrl);
     const data = await res.json();
-    const body = document.querySelector('.body')
-    body.style.backgroundImage = `url(${data.urls.regular})`;
+    const body = document.querySelector('.body');
+    const img = new Image();
+    img.src = data.urls.regular;
+    img.onload = () => {
+        body.style.backgroundImage = `url(${data.urls.regular})`;
+    }
 }
 
 async function getLinkToImageFlickr() {
@@ -235,9 +239,12 @@ async function getLinkToImageFlickr() {
     const imageUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=b90c30c7389a881fb786183065ef8aca&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
     const res = await fetch(imageUrl);
     const data = await res.json();
-    const body = document.querySelector('.body')
-    body.style.backgroundImage = `url(${data.photos.photo[parseInt(BgNum, 10)].url_l})`;
-    console.log([randomNumber])
+    const body = document.querySelector('.body');
+    const img = new Image ();
+    img.src = data.photos.photo[parseInt(BgNum, 10)].url_l;
+    img.onload = () => {
+        body.style.backgroundImage = `url(${data.photos.photo[parseInt(BgNum, 10)].url_l})`;
+    }
 }
 // menu
 const unsplashMenu = document.getElementById('Unsplash');
