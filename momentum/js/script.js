@@ -127,8 +127,8 @@ slideNext.addEventListener('click', getSlideNext)
 slidePrev.addEventListener('click', getSlidePrev)
 
 // weather
-const city = document.querySelector('.city')
-city.value = 'Minsk'
+const city = document.querySelector('.city');
+city.value = 'Minsk';
 async function getWeather() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=e4a989e855ac16126d1cab47073def89&units=metric`
     if (lang === 'ru') {
@@ -325,6 +325,7 @@ const languages = document.getElementById('Languages');
 const imageSource = document.getElementById('Image-source');
 const imageTags = document.getElementById('Image-tags');
 const widgets = document.getElementById('Widgets');
+const name = document.querySelector('.name');
 
 
 flickrMenu.addEventListener('click', () => {
@@ -452,6 +453,11 @@ function menuLanguageChange() {
         toDoMenu.textContent = 'Список дел';
         russianMenu.textContent = 'Русский';
         englishMenu.textContent = 'Английский';
+        if (city.value == 'Minsk') {
+            city.value = 'Минск'
+        }
+        name.placeholder = '[Введите имя]';
+        console.log(city.value)
     } else if (lang === 'en') {
         languages.textContent = 'Language:'
         imageSource.textContent = 'Background source:';
@@ -466,6 +472,11 @@ function menuLanguageChange() {
         toDoMenu.textContent = 'to Do List';
         russianMenu.textContent = 'Russian';
         englishMenu.textContent = 'English';
+        if (city.value == 'Минск') {
+            city.value = 'Minsk'
+        }
+        name.placeholder = 'Enter name';
+        console.log(city.value)
     };
 }
 
