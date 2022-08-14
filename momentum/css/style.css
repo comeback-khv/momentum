@@ -32,6 +32,10 @@ body {
   padding: 20px;
 }
 
+.player {
+  transition: 2s;
+}
+
 .player-controls {
   display: flex;
   align-items: center;
@@ -128,6 +132,7 @@ body {
   width: 180px;
   min-height: 180px;
   text-align: left;
+  transition: 2s;
 }
 
 .weather-error {
@@ -200,12 +205,14 @@ body {
   font-family: 'Arial-MT';
   font-size: 100px;
   letter-spacing: -4px;
+  transition: 2s;
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  transition: 2s;
 }
 
 .greeting-container {
@@ -216,6 +223,7 @@ body {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  transition: 2s;
 }
 
 .greeting {
@@ -255,14 +263,17 @@ body {
 .change-quote {
   margin-bottom: 30px;
   background-image: url("../assets/svg/reload.svg");
+  transition: 2s;
 }
 
 .quote {
   min-height: 32px;
+  transition: 2s;
 }
 
 .author {
   min-height: 20px;
+  transition: 2s;
 }
 
 .footer__settings {
@@ -280,8 +291,8 @@ body {
   position: fixed;
   left: 20px;
   bottom: 100px;
-  width: 300px;
-  height: 200px;
+  width: 355px;
+  height: 250px;
   background-color: rgba(255, 255, 255, 0.5);
   padding-top: 10px;
   padding-left: 10px;
@@ -291,13 +302,80 @@ body {
 
 .menu__title {
   color: black;
-  font-size: 16px;
+  font-size: 15px;
+  margin-bottom: 20px;
 }
 
 .menu__text {
-  font-size: 14px;
+  font-size: 13px;
   color: black;
 }
+
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.languages__title {
+  width: 40%;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: black;
+}
+
+.image-source__title {
+  width: 40%;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: black;
+}
+
+.image-tags__title {
+  width: 40%;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: black;
+}
+
+.widgets__title {
+  width: 40%;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: black;
+}
+
+.languages__text {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.image-source__text {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.widgets__text {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.active {
+  color: white;
+  background-color: black;
+}
+
+.hide {
+  opacity: 0;
+  transition: 0.7s;
+}
+
 @media (max-width: 768px) {
   .time {
     min-height: 80px;

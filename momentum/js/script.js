@@ -57,8 +57,10 @@ function showGreeting() {
     setTimeout(showGreeting, 1000);
 }
 
+// slider
+let randomNumber
 function getRandomNum() {
-    const randomNumber = (Math.floor(Math.random() * 21)).toString().padStart(2, 0);
+    let randomNumber = (Math.floor(Math.random() * 21)).toString().padStart(2, 0);
     return randomNumber;
 }
 let BgNum = getRandomNum();
@@ -76,15 +78,29 @@ function getSlideNext() {
     if (BgNum == '20') {
         BgNum = '00';
     }
-    BgNum = (Number(BgNum) + 1).toString().padStart(2, 0);;
-    setBg()
+    if (flickrMenu.classList.contains('active-api')) {
+        BgNum = (Number(getRandomNum())).toString();
+        getLinkToImageFlickr()
+    } else if (unsplashMenu.classList.contains('active-api')) {
+        getLinkToImageUnsplash()
+    } else {
+        BgNum = (Number(BgNum) + 1).toString().padStart(2, 0);
+        setBg()
+    }
 }
 function getSlidePrev() {
     if (BgNum == '01') {
         BgNum = '21';
     }
-    BgNum = (Number(BgNum) - 1).toString().padStart(2, 0);;
-    setBg()
+    if (flickrMenu.classList.contains('active-api')) {
+        BgNum = (Number(getRandomNum())).toString();
+        getLinkToImageFlickr()
+    } else if (unsplashMenu.classList.contains('active-api')) {
+        getLinkToImageUnsplash()
+    } else {
+        BgNum = (Number(BgNum) - 1).toString().padStart(2, 0);
+        setBg()
+    }
 }
 const slideNext = document.querySelector('.slide-next')
 const slidePrev = document.querySelector('.slide-prev')
@@ -109,7 +125,7 @@ getWeather()
 function setLocalStorage() {
     const name = document.querySelector('.name')
     localStorage.setItem('name', name.value);
-    localStorage.setItem('city', city.value)
+    localStorage.setItem('city', city.value);
 }
 window.addEventListener('beforeunload', setLocalStorage)
 function getLocalStorage() {
@@ -203,4 +219,113 @@ const playNextBtn = document.querySelector('.play-next');
 playPrevBtn.addEventListener('click', playPrev);
 playNextBtn.addEventListener('click', playNext);
 
+// imageApi
 
+async function getLinkToImageUnsplash() {
+    const timeOfDay = getTimeOfDay();
+    const imageUrl = `https://api.unsplash.com/photos/random?orientation=landscape&query=${timeOfDay}&client_id=sVHBfL4xfck6_oe_5pbmD9FaTIZb60S3H-73Wuoj8D0`;
+    const res = await fetch(imageUrl);
+    const data = await res.json();
+    const body = document.querySelector('.body')
+    body.style.backgroundImage = `url(${data.urls.regular})`;
+}
+
+async function getLinkToImageFlickr() {
+    const timeOfDay = getTimeOfDay();
+    const imageUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=b90c30c7389a881fb786183065ef8aca&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
+    const res = await fetch(imageUrl);
+    const data = await res.json();
+    const body = document.querySelector('.body')
+    body.style.backgroundImage = `url(${data.photos.photo[parseInt(BgNum, 10)].url_l})`;
+    console.log([randomNumber])
+}
+// menu
+const unsplashMenu = document.getElementById('Unsplash');
+const flickrMenu = document.getElementById('Flickr');
+const githubMenu = document.getElementById('Github');
+const russianMenu = document.getElementById('Russian');
+const englishMenu = document.getElementById('English');
+const timeMenu = document.getElementById('Time');
+const time = document.querySelector('.time');
+const dateMenu = document.getElementById('Date');
+const date = document.querySelector('.date');
+const greetingMenu = document.getElementById('Greeting');
+const greeting = document.querySelector('.greeting-container');
+const quotesMenu = document.getElementById('Quotes');
+const quotes = document.querySelector('.quote');
+const quotesAuthor = document.querySelector('.author');
+const quotesChange = document.querySelector('.change-quote');
+const weatherMenu = document.getElementById('Weather');
+const weather = document.querySelector('.weather');
+const audioplayerMenu = document.getElementById('Audioplayer');
+const audioplayer = document.querySelector('.player');
+const toDoMenu = document.getElementById('ToDo');
+const toDo = document.querySelector('.time');
+
+
+flickrMenu.addEventListener('click', () => {
+    flickrMenu.classList.add('active-api');
+    flickrMenu.classList.add('active');
+    githubMenu.classList.remove('active-api');
+    githubMenu.classList.remove('active');
+    unsplashMenu.classList.remove('active-api');
+    unsplashMenu.classList.remove('active');
+    getLinkToImageFlickr();
+});
+unsplashMenu.addEventListener('click', () => {
+    flickrMenu.classList.remove('active-api');
+    flickrMenu.classList.remove('active');
+    githubMenu.classList.remove('active-api');
+    githubMenu.classList.remove('active');
+    unsplashMenu.classList.add('active-api');
+    unsplashMenu.classList.add('active');
+    getLinkToImageUnsplash()
+});
+githubMenu.addEventListener('click', () => {
+    flickrMenu.classList.remove('active-api');
+    flickrMenu.classList.remove('active');
+    githubMenu.classList.add('active-api');
+    githubMenu.classList.add('active');
+    unsplashMenu.classList.remove('active-api');
+    unsplashMenu.classList.remove('active');
+    setBg()
+});
+russianMenu.addEventListener('click', () => {
+    russianMenu.classList.add('active');
+    englishMenu.classList.remove('active');
+});
+englishMenu.addEventListener('click', () => {
+    englishMenu.classList.add('active');
+    russianMenu.classList.remove('active');
+});
+
+timeMenu.addEventListener('click', () => {
+    time.classList.toggle('hide');
+    timeMenu.classList.toggle('active');
+})
+dateMenu.addEventListener('click', () => {
+    date.classList.toggle('hide');
+    dateMenu.classList.toggle('active');
+})
+greetingMenu.addEventListener('click', () => {
+    greeting.classList.toggle('hide');
+    greetingMenu.classList.toggle('active');
+})
+quotesMenu.addEventListener('click', () => {
+    quotes.classList.toggle('hide');
+    quotesAuthor.classList.toggle('hide');
+    quotesChange.classList.toggle('hide');
+    quotesMenu.classList.toggle('active');
+})
+weatherMenu.addEventListener('click', () => {
+    weather.classList.toggle('hide');
+    weatherMenu.classList.toggle('active');
+})
+audioplayerMenu.addEventListener('click', () => {
+    audioplayer.classList.toggle('hide');
+    audioplayerMenu.classList.toggle('active');
+})
+todoMenu.addEventListener('click', () => {
+    todo.classList.toggle('hide');
+    toDoMenu.classList.toggle('active');
+}) 
