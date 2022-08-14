@@ -40,16 +40,25 @@ function getTimeOfDay() {
     const date = new Date();
     const hours = date.getHours();
     if (hours >= 6 && hours < 12) {
-        return 'morning'
+        if (lang === 'ru') {
+            return 'утро'
+        } else return 'morning'
     }
     if (hours >= 12 && hours < 17) {
-       return 'afternoon'
+        if (lang === 'ru') {
+            return 'день'
+        } else return 'afternoon'
     }
     if (hours >= 17 && hours < 21) {
-       return 'evening'
+        if (lang === 'ru') {
+            return 'вечер'
+        } else return 'evening'
     }
     if (hours >= 21 | hours < 6) {
-        return 'night'
+        if (lang === 'ru') {
+            return 'ночи'
+            return 'night'
+        }
     }
 }
 
@@ -58,19 +67,14 @@ function showGreeting() {
     const greeting = document.querySelector('.greeting')
     const timeOfDay = getTimeOfDay();
     let greetingText = `Good ${timeOfDay}`;
-    if (lang === 'ru') {
-        if (timeOfDay === 'night') {
-            greetingText = 'Доброй ночи';
-        }
-        if (timeOfDay === 'morning') {
-            greetingText = 'Доброе утро';
-        }
-        if (timeOfDay === 'afternoon') {
-            greetingText = 'Добрый день';
-        }
-        if (timeOfDay === 'evening') {
-            greetingText = 'Добрый вечер';
-        }
+    if (timeOfDay == 'утро') {
+        greetingText = `Доброе ${timeOfDay}`;
+    }
+    if (timeOfDay == 'вечер') {
+        greetingText = `Добрый ${timeOfDay}`;
+    }
+    if (timeOfDay == 'ночи') {
+        greetingText = `Доброй ${timeOfDay}`;
     }
     greeting.textContent = greetingText;
     setTimeout(showGreeting, 1000);
@@ -439,35 +443,10 @@ armenia.addEventListener('click', () => {
 
 function menuLanguageChange() {
     if (lang === 'ru') {
-        languages.textContent = 'Язык:';
-        imageSource.textContent = 'Источник обоев:';
-        imageTags.textContent = 'Тэги для обоев:';
-        widgets.textContent = 'Показать виджеты:';
-        timeMenu.textContent = 'Время';
-        dateMenu.textContent = 'Дата';
-        greetingMenu.textContent = 'Приветствие';
-        quotesMenu.textContent = 'Цитата';
-        weatherMenu.textContent = 'Погода';
-        audioplayerMenu.textContent = 'Аудиоплеер';
-        toDoMenu.textContent = 'Список дел';
-        russianMenu.textContent = 'Русский';
-        englishMenu.textContent = 'Английский';
+        languages.textContent = 'Язык';
     } else if (lang === 'en') {
-        languages.textContent = 'Language:'
-        imageSource.textContent = 'Background source:';
-        imageTags.textContent = 'Background tags:';
-        widgets.textContent = 'Show widgets:';
-        timeMenu.textContent = 'Time';
-        dateMenu.textContent = 'Date';
-        greetingMenu.textContent = 'Greeting';
-        quotesMenu.textContent = 'Quote';
-        weatherMenu.textContent = 'Weather';
-        audioplayerMenu.textContent = 'Audio player';
-        toDoMenu.textContent = 'to Do List';
-        russianMenu.textContent = 'Russian';
-        englishMenu.textContent = 'English';
-    };
-}
+        languages.textContent = 'Language'};
+    }
 
 todoMenu.addEventListener('click', () => {
     todo.classList.toggle('hide');
