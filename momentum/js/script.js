@@ -329,7 +329,9 @@ const toDoInput = document.querySelector('.to-do__input');
 const toDoButton = document.querySelector('.to-do__button');
 const toDoList = document.querySelector('.to-do__list');
 const toDoIcon = document.querySelector('.to-do__icon');
-const menuTitle = document.querySelector('.menu__title')
+const menuTitle = document.querySelector('.menu__title');
+const toDoTitle = document.querySelector('.to-do__title');
+const toDoListBtn = document.querySelector('.to-do__list-btn');
 
 
 flickrMenu.addEventListener('click', () => {
@@ -462,6 +464,9 @@ function menuLanguageChange() {
         }
         name.placeholder = '[Введите имя]';
         menuTitle.textContent = 'Настройки';
+        toDoTitle.textContent = 'Список дел';
+        toDoInput.placeholder = 'Новое дело';
+        toDoIcon.textContent = 'Список дел';
     } else if (lang === 'en') {
         languages.textContent = 'Language:'
         imageSource.textContent = 'Background source:';
@@ -481,6 +486,9 @@ function menuLanguageChange() {
         }
         name.placeholder = 'Enter name';
         menuTitle.textContent = 'Settings';
+        toDoTitle.textContent = 'ToDo List';
+        toDoInput.placeholder = 'new ToDo';
+        toDoIcon.textContent = 'ToDo';
     };
 }
 
@@ -493,12 +501,14 @@ toDoMenu.addEventListener('click', () => {
 
 toDoIcon.addEventListener('click', () => {
 toDo.classList.toggle('hide');
+    toDoMenu.classList.toggle('active');
 })
 
 toDoButton.addEventListener('click', () => {
     if (toDoInput.value === '') return;
     createDeleteElements(toDoInput.value);
     toDoInput.value = '';
+
 })
 
 function createDeleteElements(value) {
@@ -510,7 +520,7 @@ function createDeleteElements(value) {
     p.textContent = value;
     li.appendChild(p);
     const btn = document.createElement('button')
-    btn.textContent = 'Delete';
+    btn.textContent = '-';
     btn.classList.add('to-do__list-btn');
     li.appendChild(btn);
     btn.addEventListener('click', () => {
