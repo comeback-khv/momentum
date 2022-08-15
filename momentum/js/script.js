@@ -196,6 +196,7 @@ changeQuote.addEventListener('click', getQuotes);
 
 // audioPlayer
 const songName = document.querySelector('.player__song-name');
+const playerTime = document.querySelector('.player__time');
 let isPlay = false;
 const audio = new Audio();
 function playAudio() {
@@ -256,10 +257,15 @@ const progressContainer = document.querySelector('.player-container');
 
 //updateProgress
 function updateProgress(event) {
-    const duration = event.srcElement.duration;
-    const currentTime = event.srcElement.currentTime;
+    const duration = audio.duration;
+    const currentTime = audio.currentTime;
     const progressPercent = (currentTime / duration) * 100;
     progressBar.style.width = `${progressPercent}%`;
+    const currentTimeInMinutes = Math.floor(currentTime/60).toString().padStart(2, 0);
+    const currentTimeInSeconds = Math.floor(currentTime % 60).toString().padStart(2, 0);
+    const durationInMinutes = Math.floor(duration / 60).toString().padStart(2, 0);
+    const durationInSeconds = Math.floor(duration % 60).toString().padStart(2, 0);
+    playerTime.textContent = `${currentTimeInMinutes}:${currentTimeInSeconds} / ${durationInMinutes}:${durationInSeconds}`
 }
 audio.addEventListener('timeupdate', updateProgress)
 
