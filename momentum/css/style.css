@@ -443,7 +443,39 @@ body {
   width: 25px;
   height: 20px;
   margin-right: 20px;
+}
 
+.player-container {
+  background-color: white;
+  width: 170px;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.player__progress-bar {
+  background-color: blue;
+  height: 10px;
+  width: 0%;
+  border-radius: 5px;
+}
+
+.player__volume-icon {
+}
+
+.player__volume-icon--volume-on {
+  content: '';
+  background-image: url("../assets/svg/volumeOn.svg");
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
+}
+
+.player__volume-icon--volume-off {
+  content: '';
+  background-image: url("../assets/svg/volumeOff.svg");
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
 }
 
 @media (max-width: 768px) {

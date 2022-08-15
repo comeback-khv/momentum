@@ -195,6 +195,7 @@ const changeQuote = document.querySelector('.change-quote');
 changeQuote.addEventListener('click', getQuotes);
 
 // audioPlayer
+const songName = document.querySelector('.player__song-name');
 let isPlay = false;
 const audio = new Audio();
 function playAudio() {
@@ -210,7 +211,7 @@ function playAudio() {
         isPlay = false;
         play.classList.remove('pause');
     }
-
+    songName.textContent = playList[playNum].title;
 }
 const play = document.querySelector('.play');
 for (let i = 0; i < playList.length; i++) {
@@ -249,8 +250,48 @@ const playNextBtn = document.querySelector('.play-next');
 playPrevBtn.addEventListener('click', playPrev);
 playNextBtn.addEventListener('click', playNext);
 
-// imageApi
+// modernAudioPlayer
+const progressBar = document.querySelector('.player__progress-bar');
+const progressContainer = document.querySelector('.player-container');
 
+//updateProgress
+function updateProgress(event) {
+    const duration = event.srcElement.duration;
+    const currentTime = event.srcElement.currentTime;
+    const progressPercent = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+}
+audio.addEventListener('timeupdate', updateProgress)
+
+//setProgress 
+function setProgress(e) {
+    const width = 170;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (clickX / width) * duration;
+}
+progressContainer.addEventListener('click', setProgress)
+
+//autoplay
+audio.addEventListener('ended', playNext)
+
+//mute
+const volumeIcon = document.querySelector('.player__volume-icon');
+audio.muted = false;
+volumeIcon.classList.add('player__volume-icon--volume-on');
+volumeIcon.addEventListener('click', () => {
+    if (audio.muted == false) {
+        audio.muted = true;
+        volumeIcon.classList.add('player__volume-icon--volume-off');
+        volumeIcon.classList.remove('player__volume-icon--volume-on');
+    } else if (audio.muted == true) {
+        audio.muted = false;
+        volumeIcon.classList.add('player__volume-icon--volume-on');
+        volumeIcon.classList.remove('player__volume-icon--volume-off');
+    }
+})
+
+// imageApi
 async function getLinkToImageUnsplash() {
     let timeOfDay = getTimeOfDay();
     if (mountains.classList.contains('active-tag')) {
@@ -500,7 +541,7 @@ toDoMenu.addEventListener('click', () => {
 //toDoMenu
 
 toDoIcon.addEventListener('click', () => {
-toDo.classList.toggle('hide');
+    toDo.classList.toggle('hide');
     toDoMenu.classList.toggle('active');
 })
 
