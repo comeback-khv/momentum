@@ -276,10 +276,10 @@ body {
   transition: 2s;
 }
 
-.footer__settings {
+.menu-icon {
   position: fixed;
-  left: 50px;
-  bottom: 40px;
+  left: 20px;
+  bottom: 10px;
   cursor: pointer;
 }
 
@@ -298,6 +298,7 @@ body {
   padding-left: 10px;
   box-sizing: border-box;
   border-radius: 10px;
+  transition: 2s;
 }
 
 .menu__title {
@@ -381,6 +382,65 @@ body {
 .hide {
   opacity: 0;
   transition: 0.7s;
+}
+
+.to-do__icon {
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  cursor: pointer;
+}
+
+.to-do__menu {
+  position: fixed;
+  right: 20px;
+  bottom: 286px;
+  width: 350px;
+  height: 64px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: 2s;
+}
+
+.to-do__title {
+  color: black;
+  font-size: 16px;
+  padding-top: 15px;
+  margin-bottom: 10px;
+}
+
+.to-do__input {
+  border-radius: 2px;
+  border: none;
+}
+
+.to-do__button {
+  width: 20px;
+  height: 20px;
+}
+
+.to-do__list {
+  list-style: none;
+}
+
+.to-do__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 17px;
+    cursor: pointer;
+}
+
+.to-do__item-text {
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.to-do__list-btn {
+  margin-right: 7px;
 }
 
 @media (max-width: 768px) {

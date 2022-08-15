@@ -45,9 +45,9 @@
     </div>
   </main>
   <footer class="footer">
-    <img src="assets/img/settings-icon.png" alt="Settings" class="footer__settings" width="40" height="40">
-    <div class="menu" id="Menu">
-      <h2 class="menu__title">Настройки</h2>
+    <img src="assets/img/settings-icon.png" alt="Settings" class="menu-icon" width="40" height="40">
+    <div class="menu hide" id="Menu">
+      <h2 class="menu__title">Settings</h2>
       <div class="languages section-container">
         <h3 class="languages__title" id="Languages">Language:</h3>
         <p class="languages__text menu__text active" id="English">English</p>
@@ -73,13 +73,22 @@
         <p class="widgets__text menu__text active" id="Quotes">Quote</p>
         <p class="widgets__text menu__text active" id="Weather">Weather</p>
         <p class="widgets__text menu__text active" id="Audioplayer">Audio player</p>
-        <p class="widgets__text menu__text active" id="ToDo">to Do List</p>
+        <p class="widgets__text menu__text" id="ToDo">to Do List</p>
       </div>
     </div>
     <button class="change-quote"></button>
     <div>
       <div class="quote"></div>
       <div class="author"></div>
+    </div>
+    <div class="to-do">
+      <div class="to-do__icon">ToDo</div>
+      <div class="to-do__menu hide">
+        <h2 class="to-do__title">ToDo List</h2>
+        <input class="to-do__input" type="text" placeholder="new ToDo">
+        <button class="to-do__button">+</button>
+        <ul class="to-do__list"></ul>
+      </div>
     </div>
   </footer>
   <script type="module" src="js/playList.js"></script>

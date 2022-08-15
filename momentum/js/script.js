@@ -4,14 +4,12 @@ import playList from './playList.js';
 // language
 let lang = 'en';
 // menu
-const menuIcon = document.querySelector('.footer__settings');
+const menuIcon = document.querySelector('.menu-icon');
 const menu = document.querySelector('.menu');
-function openMenu() {
-    if (menu.style.display = 'none') {
-        menu.style.display = 'block';
-    }
-}
-menuIcon.addEventListener('click', openMenu)
+menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('hide');
+})
+
 
 // timeAndDate
 function showTime() {
@@ -43,10 +41,10 @@ function getTimeOfDay() {
         return 'morning'
     }
     if (hours >= 12 && hours < 17) {
-       return 'afternoon'
+        return 'afternoon'
     }
     if (hours >= 17 && hours < 21) {
-       return 'evening'
+        return 'evening'
     }
     if (hours >= 21 | hours < 6) {
         return 'night'
@@ -317,7 +315,8 @@ const weather = document.querySelector('.weather');
 const audioplayerMenu = document.getElementById('Audioplayer');
 const audioplayer = document.querySelector('.player');
 const toDoMenu = document.getElementById('ToDo');
-const toDo = document.querySelector('.time');
+const toDoFull = document.querySelector('.to-do')
+const toDo = document.querySelector('.to-do__menu');
 const mountains = document.getElementById('Mountains');
 const water = document.getElementById('Water');
 const armenia = document.getElementById('Armenia');
@@ -326,6 +325,11 @@ const imageSource = document.getElementById('Image-source');
 const imageTags = document.getElementById('Image-tags');
 const widgets = document.getElementById('Widgets');
 const name = document.querySelector('.name');
+const toDoInput = document.querySelector('.to-do__input');
+const toDoButton = document.querySelector('.to-do__button');
+const toDoList = document.querySelector('.to-do__list');
+const toDoIcon = document.querySelector('.to-do__icon');
+const menuTitle = document.querySelector('.menu__title')
 
 
 flickrMenu.addEventListener('click', () => {
@@ -457,7 +461,7 @@ function menuLanguageChange() {
             city.value = 'Минск'
         }
         name.placeholder = '[Введите имя]';
-        console.log(city.value)
+        menuTitle.textContent = 'Настройки';
     } else if (lang === 'en') {
         languages.textContent = 'Language:'
         imageSource.textContent = 'Background source:';
@@ -476,12 +480,43 @@ function menuLanguageChange() {
             city.value = 'Minsk'
         }
         name.placeholder = 'Enter name';
-        console.log(city.value)
+        menuTitle.textContent = 'Settings';
     };
 }
 
-todoMenu.addEventListener('click', () => {
-    todo.classList.toggle('hide');
+toDoMenu.addEventListener('click', () => {
+    toDo.classList.toggle('hide');
     toDoMenu.classList.toggle('active');
 })
 
+//toDoMenu
+
+toDoIcon.addEventListener('click', () => {
+toDo.classList.toggle('hide');
+})
+
+toDoButton.addEventListener('click', () => {
+    if (toDoInput.value === '') return;
+    createDeleteElements(toDoInput.value);
+    toDoInput.value = '';
+})
+
+function createDeleteElements(value) {
+    console.log(value)
+    const li = document.createElement('li');
+    li.classList.add('to-do__item');
+    toDoList.appendChild(li);
+    const p = document.createElement('p');
+    p.textContent = value;
+    li.appendChild(p);
+    const btn = document.createElement('button')
+    btn.textContent = 'Delete';
+    btn.classList.add('to-do__list-btn');
+    li.appendChild(btn);
+    btn.addEventListener('click', () => {
+        toDoList.removeChild(li);
+    })
+    li.addEventListener('click', () => {
+        p.classList.toggle('to-do__item-text');
+    })
+}
