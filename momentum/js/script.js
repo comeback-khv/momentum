@@ -40,13 +40,13 @@ function getTimeOfDay() {
     if (hours >= 6 && hours < 12) {
         return 'morning'
     }
-    if (hours >= 12 && hours < 17) {
+    if (hours >= 12 && hours < 18) {
         return 'afternoon'
     }
-    if (hours >= 17 && hours < 21) {
+    if (hours >= 18) {
         return 'evening'
     }
-    if (hours >= 21 | hours < 6) {
+    if (hours < 6) {
         return 'night'
     }
 }
