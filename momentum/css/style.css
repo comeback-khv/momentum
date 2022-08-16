@@ -453,14 +453,13 @@ body {
 }
 
 .player__progress-bar {
-  background-color: blue;
+  background-color: rgb(83, 127, 210);
   height: 10px;
   width: 0%;
   border-radius: 5px;
 }
 
-.player__volume-icon {
-}
+.player__volume-icon {}
 
 .player__volume-icon--volume-on {
   content: '';
@@ -477,6 +476,21 @@ body {
   width: 25px;
   height: 25px;
 }
+
+.player__volume-bar {
+  background-color: rgb(83, 127, 210);
+  height: 10px;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.player__volume-bar-container {
+  background-color: white;
+  width: 100px;
+  height: 10px;
+  border-radius: 5px;
+}
+
 
 @media (max-width: 768px) {
   .time {

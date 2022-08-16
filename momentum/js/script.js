@@ -261,7 +261,7 @@ function updateProgress(event) {
     const currentTime = audio.currentTime;
     const progressPercent = (currentTime / duration) * 100;
     progressBar.style.width = `${progressPercent}%`;
-    const currentTimeInMinutes = Math.floor(currentTime/60).toString().padStart(2, 0);
+    const currentTimeInMinutes = Math.floor(currentTime / 60).toString().padStart(2, 0);
     const currentTimeInSeconds = Math.floor(currentTime % 60).toString().padStart(2, 0);
     const durationInMinutes = Math.floor(duration / 60).toString().padStart(2, 0);
     const durationInSeconds = Math.floor(duration % 60).toString().padStart(2, 0);
@@ -296,6 +296,21 @@ volumeIcon.addEventListener('click', () => {
         volumeIcon.classList.remove('player__volume-icon--volume-off');
     }
 })
+
+// volume
+const progressVolumeBar = document.querySelector('.player__volume-bar');
+const progressBarContainer = document.querySelector('.player__volume-bar-container');
+
+// setProgressVolume
+function setProgressVolume(e) {
+    const width = 100;
+    const clickX = e.offsetX;
+    audio.volume = clickX / width;
+    progressVolumeBar.style.width = `${audio.volume*100}%`
+    console.log(audio.volume)
+}
+progressBarContainer.addEventListener('click', setProgressVolume)
+
 
 // imageApi
 async function getLinkToImageUnsplash() {
