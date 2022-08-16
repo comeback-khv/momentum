@@ -199,32 +199,48 @@ const songName = document.querySelector('.player__song-name');
 const playerTime = document.querySelector('.player__time');
 let isPlay = false;
 const audio = new Audio();
+let curTime = 0;
+const click = (event) => {
+    console.log(event.target)
+}
 function playAudio() {
     if (isPlay == false) {
         audio.src = playList[playNum].src;
-        audio.currentTime = 0;
+        audio.currentTime = curTime;
         audio.play();
         isPlay = true;
         play.classList.add('pause');
+        playListButton[playNum].classList.add('play-list__button--pause')
+        playListButton[playNum].classList.remove('play-list__button');
         playItem[playNum].classList.add('item-active');
     } else if (isPlay == true) {
         audio.pause();
+        curTime = audio.currentTime;
         isPlay = false;
         play.classList.remove('pause');
+        playItem[playNum].classList.remove('item-active');
+        playListButton[playNum].classList.add('play-list__button');
+        playListButton[playNum].classList.remove('play-list__button--pause')
     }
     songName.textContent = playList[playNum].title;
 }
 const play = document.querySelector('.play');
+
+
 for (let i = 0; i < playList.length; i++) {
     const li = document.createElement('li');
-    const playListUl = document.querySelector('.play-list')
-    li.classList.add('play-item')
+    const playListUl = document.querySelector('.play-list');
+    const btn = document.createElement('button');
+    btn.classList.add('play-list__button');
+    li.classList.add('play-item');
     li.textContent = playList[i].title;
     playListUl.append(li)
+    li.append(btn);
 }
 const playItem = document.querySelectorAll('.play-item')
 const playerIcon = document.querySelector('.player-icon')
 play.addEventListener('click', playAudio)
+
 let playNum = 0
 function playPrev() {
     playItem[playNum].classList.remove('item-active');
@@ -306,12 +322,33 @@ function setProgressVolume(e) {
     const width = 100;
     const clickX = e.offsetX;
     audio.volume = clickX / width;
-    progressVolumeBar.style.width = `${audio.volume*100}%`
+    progressVolumeBar.style.width = `${audio.volume * 100}%`
     console.log(audio.volume)
 }
 progressBarContainer.addEventListener('click', setProgressVolume)
 
+//playlist-button
+const playListButton = document.querySelectorAll('.play-list__button');
+playListButton.forEach((element, index) => {
+    element.addEventListener('click', () => {
+        if (element.classList.contains('play-list__button')) {
+            isPlay = false ;
+            playListButton.forEach(elem => {
+                elem.classList.remove('play-list__button--pause'); 
+                elem.classList.add('play-list__button');
+            })
+        }
+        playItem.forEach(element => {
+            element.classList.remove('item-active');
+        }
+        )
+        playNum = index;
+        playItem[playNum].classList.toggle('item-active');
+        playAudio();
+        audio.currentTime = 0;
 
+    })
+})
 // imageApi
 async function getLinkToImageUnsplash() {
     let timeOfDay = getTimeOfDay();

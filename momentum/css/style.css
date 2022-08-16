@@ -30,10 +30,12 @@ body {
   height: 30vh;
   min-height: 220px;
   padding: 20px;
+
 }
 
 .player {
   transition: 2s;
+  z-index: 2;
 }
 
 .player-controls {
@@ -41,7 +43,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 120px;
-  margin-bottom: 28px;
+  margin-bottom: 5px;
 }
 
 .play-list {
@@ -51,7 +53,7 @@ body {
 .play-item {
   position: relative;
   padding: 5px;
-  padding-left: 20px;
+  padding-left: 50px;
   list-style: none;
   opacity: .8;
   cursor: pointer;
@@ -65,9 +67,13 @@ body {
 .play-item::before {
   content: "\2713";
   position: absolute;
-  left: 0;
-  top: 2px;
+  left: 25px;
+  top: 5px;
   font-weight: 900;
+}
+
+.item-active {
+  color: #C5B358;
 }
 
 .item-active::before {
@@ -446,10 +452,20 @@ body {
 }
 
 .player-container {
+  margin-bottom: 10px;
   background-color: white;
   width: 170px;
   height: 10px;
   border-radius: 5px;
+}
+
+.player__time-container {
+  display: flex;
+
+}
+
+.player__volume {
+  display: flex;
 }
 
 .player__progress-bar {
@@ -459,7 +475,9 @@ body {
   border-radius: 5px;
 }
 
-.player__volume-icon {}
+.player__volume-icon {
+  margin-right: 10px;
+}
 
 .player__volume-icon--volume-on {
   content: '';
@@ -491,6 +509,47 @@ body {
   border-radius: 5px;
 }
 
+.play-list__button {
+  position: fixed;
+  left: 15px;
+  width: 25px;
+  height: 25px;
+  background-size: 25px 25px;
+  background-image: url("../assets/svg/play.svg");
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.play-list__button--pause {
+  position: fixed;
+  left: 15px;
+  width: 25px;
+  height: 25px;
+  background-size: 25px 25px;
+  background-image: url("../assets/svg/pause.svg");
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.player__song-name {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.player__time {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 10px;
+}
 
 @media (max-width: 768px) {
   .time {
