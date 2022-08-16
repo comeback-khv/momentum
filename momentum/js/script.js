@@ -85,6 +85,9 @@ function setBg() {
     const body = document.querySelector('.body')
     const timeOfDay = getTimeOfDay();
     const img = new Image();
+    if (BgNum == '00') {
+        BgNum = 15;
+    }
     img.src = `https://raw.githubusercontent.com/comeback-khv/stage1-tasks/assets/images/${timeOfDay}/${BgNum}.jpg`;
     img.onload = () => {
         body.style.backgroundImage = `url(https://raw.githubusercontent.com/comeback-khv/stage1-tasks/assets/images/${timeOfDay}/${BgNum}.jpg)`;
